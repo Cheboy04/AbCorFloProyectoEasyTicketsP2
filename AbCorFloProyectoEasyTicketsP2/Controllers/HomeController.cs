@@ -1,4 +1,6 @@
 using AbCorFloProyectoEasyTicketsP2.Models;
+using AbCorFloProyectoEasyTicketsP2.Data;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,16 +8,19 @@ namespace AbCorFloProyectoEasyTicketsP2.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly AbCorFloProyectoEasyTicketsP2Context _context;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(AbCorFloProyectoEasyTicketsP2Context context, ILogger<HomeController> logger)
         {
+            _context = context;
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> IndexAsync()
         {
-            return View();
+
+            return View(await _context.Ticket.ToListAsync());
         }
 
         public IActionResult Privacy()

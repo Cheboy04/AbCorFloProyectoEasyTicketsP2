@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using AbCorFloProyectoEasyTicketsP2.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<AbCorFloProyectoEasyTicketsP2Context>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AbCorFloProyectoEasyTicketsP2Context") ?? throw new InvalidOperationException("Connection string 'AbCorFloProyectoEasyTicketsP2Context' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
