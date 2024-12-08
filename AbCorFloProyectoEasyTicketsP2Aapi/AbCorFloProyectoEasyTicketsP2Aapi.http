@@ -1,0 +1,6 @@
+@AbCorFloProyectoEasyTicketsP2Aapi_HostAddress = http://localhost:5199
+
+GET {{AbCorFloProyectoEasyTicketsP2Aapi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

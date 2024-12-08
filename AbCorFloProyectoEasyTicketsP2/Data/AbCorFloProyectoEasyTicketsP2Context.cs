@@ -14,7 +14,7 @@ namespace AbCorFloProyectoEasyTicketsP2.Data
         {
         }
 
-        public DbSet<ProyectoEasyTicket.Models.Ticket> Ticket { get; set; } = default!;
-        public DbSet<ProyectoEasyTicket.Models.Reviews> Reviews { get; set; } = default!;
+        public DbSet<ProyectoEasyTicket.Models.ACFTicket> Ticket { get; set; } = default!;
+        public DbSet<ProyectoEasyTicket.Models.ACFReviews> ACFReviews { get; set; } = default!;
     }
 }

@@ -1,4 +1,4 @@
-﻿@model ProyectoEasyTicket.Models.Reviews
+﻿@model ProyectoEasyTicket.Models.ACFReviews
 
 @{
     ViewData["Title"] = "Detalles de la Reseña";
@@ -10,16 +10,16 @@
         <div class="card-body">
             <dl class="row">
                 <dt class="col-sm-3">Comentario</dt>
-                <dd class="col-sm-9">@Model.Comentario</dd>
+                <dd class="col-sm-9">@Model.ACFComentario</dd>
 
                 <dt class="col-sm-3">Calificación</dt>
-                <dd class="col-sm-9">@Model.Calificacion</dd>
+                <dd class="col-sm-9">@Model.ACFCalificacion</dd>
 
                 <dt class="col-sm-3">Fecha</dt>
-                <dd class="col-sm-9">@Model.Fecha.ToString("dd/MM/yyyy")</dd>
+                <dd class="col-sm-9">@Model.ACFFecha.ToString("dd/MM/yyyy")</dd>
 
                 <dt class="col-sm-3">Evento</dt>
-                <dd class="col-sm-9">@Model.TicketID</dd>
+                <dd class="col-sm-9">@Model.ACFTicketID</dd>
             </dl>
             <a asp-action="Index" class="btn btn-secondary">Regresar a la Lista</a>
         </div>

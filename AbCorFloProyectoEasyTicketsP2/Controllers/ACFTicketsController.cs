@@ -35,7 +35,7 @@ namespace AbCorFloProyectoEasyTicketsP2.Controllers
             }
 
             var ticket = await _context.Ticket
-                .FirstOrDefaultAsync(m => m.TicketID == id);
+                .FirstOrDefaultAsync(m => m.ACFTicketID == id);
             if (ticket == null)
             {
                 return NotFound();
@@ -55,7 +55,7 @@ namespace AbCorFloProyectoEasyTicketsP2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("TicketID,Evento,Fecha,Lugar,ButacaSeccion,Precio,Telefono,Vendido,Contrasenia")] Ticket ticket)
+        public async Task<IActionResult> Create([Bind("ACFTicketID,ACFEvento,ACFFecha,ACFLugar,ACFButacaSeccion,ACFPrecio,ACFTelefono,ACFVendido,ACFContrasenia")] ACFTicket ticket)
         {
             if (ModelState.IsValid)
             {
@@ -87,9 +87,9 @@ namespace AbCorFloProyectoEasyTicketsP2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("TicketID,Evento,Fecha,Lugar,ButacaSeccion,Precio,Telefono,Vendido,Contrasenia")] Ticket ticket)
+        public async Task<IActionResult> Edit(int id, [Bind("ACFTicketID,ACFEvento,ACFFecha,ACFLugar,ACFButacaSeccion,ACFPrecio,ACFTelefono,ACFVendido,ACFContrasenia")] ACFTicket ticket)
         {
-            if (id != ticket.TicketID)
+            if (id != ticket.ACFTicketID)
             {
                 return NotFound();
             }
@@ -103,7 +103,7 @@ namespace AbCorFloProyectoEasyTicketsP2.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TicketExists(ticket.TicketID))
+                    if (!TicketExists(ticket.ACFTicketID))
                     {
                         return NotFound();
                     }
@@ -126,7 +126,7 @@ namespace AbCorFloProyectoEasyTicketsP2.Controllers
             }
 
             var ticket = await _context.Ticket
-                .FirstOrDefaultAsync(m => m.TicketID == id);
+                .FirstOrDefaultAsync(m => m.ACFTicketID == id);
             if (ticket == null)
             {
                 return NotFound();
@@ -152,7 +152,7 @@ namespace AbCorFloProyectoEasyTicketsP2.Controllers
 
         private bool TicketExists(int id)
         {
-            return _context.Ticket.Any(e => e.TicketID == id);
+            return _context.Ticket.Any(e => e.ACFTicketID == id);
         }
         public async Task<IActionResult> ConfirmarClave(int? id)
         {
@@ -162,7 +162,7 @@ namespace AbCorFloProyectoEasyTicketsP2.Controllers
             }
 
             var ticket = await _context.Ticket
-                .FirstOrDefaultAsync(m => m.TicketID == id);
+                .FirstOrDefaultAsync(m => m.ACFTicketID == id);
             if (ticket == null)
             {
                 return NotFound();
@@ -181,7 +181,7 @@ namespace AbCorFloProyectoEasyTicketsP2.Controllers
             }
 
             // Verifica la clave del ticket
-            if (ticket.Contrasenia == clave)
+            if (ticket.ACFContrasenia == clave)
             {
 
                 var ticketParaEditar = await _context.Ticket.FindAsync(id);
@@ -201,7 +201,7 @@ namespace AbCorFloProyectoEasyTicketsP2.Controllers
             }
 
             var ticket = await _context.Ticket
-                .FirstOrDefaultAsync(m => m.TicketID == id);
+                .FirstOrDefaultAsync(m => m.ACFTicketID == id);
             if (ticket == null)
             {
                 return NotFound();
@@ -222,7 +222,7 @@ namespace AbCorFloProyectoEasyTicketsP2.Controllers
             }
 
             // Verifica la clave del ticket
-            if (ticket.Contrasenia == clave)
+            if (ticket.ACFContrasenia == clave)
             {
                 TempData["ClaveValidada"] = true;
                 return RedirectToAction("Delete", new { id });
@@ -241,7 +241,7 @@ namespace AbCorFloProyectoEasyTicketsP2.Controllers
             }
 
             var ticket = await _context.Ticket
-                .FirstOrDefaultAsync(m => m.TicketID == id);
+                .FirstOrDefaultAsync(m => m.ACFTicketID == id);
             if (ticket == null)
             {
                 return NotFound();
@@ -261,7 +261,7 @@ namespace AbCorFloProyectoEasyTicketsP2.Controllers
             {
                 return NotFound();
             }
-            ticket.Vendido = true;
+            ticket.ACFVendido = true;
 
 
             _context.Update(ticket);

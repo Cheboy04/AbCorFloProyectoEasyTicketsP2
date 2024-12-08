@@ -1,4 +1,4 @@
-﻿@model ProyectoEasyTicket.Models.Ticket
+﻿@model ProyectoEasyTicket.Models.ACFTicket
 
 @{
     ViewData["Title"] = "Details";
@@ -10,48 +10,48 @@
     <h4>Ticket</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Evento)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Evento)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Fecha)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Fecha)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Lugar)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Lugar)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ButacaSeccion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ButacaSeccion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Precio)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Precio)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Telefono)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Telefono)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Vendido)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Vendido)
-        </dd>
+ <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ACFEvento)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ACFEvento)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ACFFecha)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ACFFecha)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ACFLugar)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ACFLugar)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ACFButacaSeccion)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ACFButacaSeccion)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ACFPrecio)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ACFPrecio)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ACFTelefono)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ACFTelefono)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ACFVendido)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ACFVendido)
+            </dd>
     </dl>
 </div>
 <div>

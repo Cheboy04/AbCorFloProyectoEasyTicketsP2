@@ -22,7 +22,7 @@ namespace AbCorFloProyectoEasyTicketsP2.Controllers
         // GET: ACFReviews
         public async Task<IActionResult> Index()
         {
-            var abCorFloProyectoEasyTicketsP2Context = _context.Reviews.Include(r => r.Ticket);
+            var abCorFloProyectoEasyTicketsP2Context = _context.ACFReviews.Include(a => a.ACFTicket);
             return View(await abCorFloProyectoEasyTicketsP2Context.ToListAsync());
         }
 
@@ -34,21 +34,21 @@ namespace AbCorFloProyectoEasyTicketsP2.Controllers
                 return NotFound();
             }
 
-            var reviews = await _context.Reviews
-                .Include(r => r.Ticket)
-                .FirstOrDefaultAsync(m => m.ReviewID == id);
-            if (reviews == null)
+            var aCFReviews = await _context.ACFReviews
+                .Include(a => a.ACFTicket)
+                .FirstOrDefaultAsync(m => m.ACFReviewID == id);
+            if (aCFReviews == null)
             {
                 return NotFound();
             }
 
-            return View(reviews);
+            return View(aCFReviews);
         }
 
         // GET: ACFReviews/Create
         public IActionResult Create()
         {
-            ViewData["TicketID"] = new SelectList(_context.Ticket, "TicketID", "Evento");
+            ViewData["ACFTicketID"] = new SelectList(_context.Ticket, "ACFTicketID", "ACFEvento");
             return View();
         }
 
@@ -57,16 +57,16 @@ namespace AbCorFloProyectoEasyTicketsP2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ReviewID,Comentario,Calificacion,Fecha,TicketID")] Reviews reviews)
+        public async Task<IActionResult> Create([Bind("ACFReviewID,ACFComentario,ACFCalificacion,ACFFecha,ACFTicketID")] ACFReviews aCFReviews)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(reviews);
+                _context.Add(aCFReviews);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TicketID"] = new SelectList(_context.Ticket, "TicketID", "Evento", reviews.TicketID);
-            return View(reviews);
+            ViewData["ACFTicketID"] = new SelectList(_context.Ticket, "ACFTicketID", "ACFEvento", aCFReviews.ACFTicketID);
+            return View(aCFReviews);
         }
 
         // GET: ACFReviews/Edit/5
@@ -77,13 +77,13 @@ namespace AbCorFloProyectoEasyTicketsP2.Controllers
                 return NotFound();
             }
 
-            var reviews = await _context.Reviews.FindAsync(id);
-            if (reviews == null)
+            var aCFReviews = await _context.ACFReviews.FindAsync(id);
+            if (aCFReviews == null)
             {
                 return NotFound();
             }
-            ViewData["TicketID"] = new SelectList(_context.Ticket, "TicketID", "Evento", reviews.TicketID);
-            return View(reviews);
+            ViewData["ACFTicketID"] = new SelectList(_context.Ticket, "ACFTicketID", "ACFEvento", aCFReviews.ACFTicketID);
+            return View(aCFReviews);
         }
 
         // POST: ACFReviews/Edit/5
@@ -91,9 +91,9 @@ namespace AbCorFloProyectoEasyTicketsP2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ReviewID,Comentario,Calificacion,Fecha,TicketID")] Reviews reviews)
+        public async Task<IActionResult> Edit(int id, [Bind("ACFReviewID,ACFComentario,ACFCalificacion,ACFFecha,ACFTicketID")] ACFReviews aCFReviews)
         {
-            if (id != reviews.ReviewID)
+            if (id != aCFReviews.ACFReviewID)
             {
                 return NotFound();
             }
@@ -102,12 +102,12 @@ namespace AbCorFloProyectoEasyTicketsP2.Controllers
             {
                 try
                 {
-                    _context.Update(reviews);
+                    _context.Update(aCFReviews);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ReviewsExists(reviews.ReviewID))
+                    if (!ACFReviewsExists(aCFReviews.ACFReviewID))
                     {
                         return NotFound();
                     }
@@ -118,8 +118,8 @@ namespace AbCorFloProyectoEasyTicketsP2.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TicketID"] = new SelectList(_context.Ticket, "TicketID", "Evento", reviews.TicketID);
-            return View(reviews);
+            ViewData["ACFTicketID"] = new SelectList(_context.Ticket, "ACFTicketID", "ACFEvento", aCFReviews.ACFTicketID);
+            return View(aCFReviews);
         }
 
         // GET: ACFReviews/Delete/5
@@ -130,15 +130,15 @@ namespace AbCorFloProyectoEasyTicketsP2.Controllers
                 return NotFound();
             }
 
-            var reviews = await _context.Reviews
-                .Include(r => r.Ticket)
-                .FirstOrDefaultAsync(m => m.ReviewID == id);
-            if (reviews == null)
+            var aCFReviews = await _context.ACFReviews
+                .Include(a => a.ACFTicket)
+                .FirstOrDefaultAsync(m => m.ACFReviewID == id);
+            if (aCFReviews == null)
             {
                 return NotFound();
             }
 
-            return View(reviews);
+            return View(aCFReviews);
         }
 
         // POST: ACFReviews/Delete/5
@@ -146,19 +146,19 @@ namespace AbCorFloProyectoEasyTicketsP2.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var reviews = await _context.Reviews.FindAsync(id);
-            if (reviews != null)
+            var aCFReviews = await _context.ACFReviews.FindAsync(id);
+            if (aCFReviews != null)
             {
-                _context.Reviews.Remove(reviews);
+                _context.ACFReviews.Remove(aCFReviews);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ReviewsExists(int id)
+        private bool ACFReviewsExists(int id)
         {
-            return _context.Reviews.Any(e => e.ReviewID == id);
+            return _context.ACFReviews.Any(e => e.ACFReviewID == id);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model ProyectoEasyTicket.Models.Ticket
+﻿@model ProyectoEasyTicket.Models.ACFTicket
 
 @{
     ViewData["Title"] = "Comprar";
@@ -11,47 +11,47 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Evento)
+            @Html.DisplayNameFor(model => model.ACFEvento)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Evento)
+            @Html.DisplayFor(model => model.ACFEvento)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Fecha)
+            @Html.DisplayNameFor(model => model.ACFFecha)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Fecha)
+            @Html.DisplayFor(model => model.ACFFecha)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Lugar)
+            @Html.DisplayNameFor(model => model.ACFLugar)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Lugar)
+            @Html.DisplayFor(model => model.ACFLugar)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ButacaSeccion)
+            @Html.DisplayNameFor(model => model.ACFButacaSeccion)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ButacaSeccion)
+            @Html.DisplayFor(model => model.ACFButacaSeccion)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Precio)
+            @Html.DisplayNameFor(model => model.ACFPrecio)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Precio)
+            @Html.DisplayFor(model => model.ACFPrecio)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Telefono)
+            @Html.DisplayNameFor(model => model.ACFTelefono)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Telefono)
+            @Html.DisplayFor(model => model.ACFTelefono)
         </dd>
     </dl>
 </div>
 
 
 <form asp-action="Comprar" method="post">
-    <input type="hidden" asp-for="TicketID" />
+    <input type="hidden" asp-for="ACFTicketID" />
 
     <h4>Información de Pago</h4>
 

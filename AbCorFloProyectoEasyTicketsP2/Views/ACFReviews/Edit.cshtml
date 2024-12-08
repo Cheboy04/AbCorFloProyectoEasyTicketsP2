@@ -1,4 +1,4 @@
-﻿@model ProyectoEasyTicket.Models.Reviews
+﻿@model ProyectoEasyTicket.Models.ACFReviews
 
 @{
     ViewData["Title"] = "Edit";
@@ -12,26 +12,26 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="ReviewID" />
+            <input type="hidden" asp-for="ACFReviewID" />
             <div class="form-group">
-                <label asp-for="Comentario" class="control-label"></label>
-                <input asp-for="Comentario" class="form-control" />
-                <span asp-validation-for="Comentario" class="text-danger"></span>
+                <label asp-for="ACFComentario" class="control-label"></label>
+                <input asp-for="ACFComentario" class="form-control" />
+                <span asp-validation-for="ACFComentario" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Calificacion" class="control-label"></label>
-                <input asp-for="Calificacion" class="form-control" />
-                <span asp-validation-for="Calificacion" class="text-danger"></span>
+                <label asp-for="ACFCalificacion" class="control-label"></label>
+                <input asp-for="ACFCalificacion" class="form-control" />
+                <span asp-validation-for="ACFCalificacion" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Fecha" class="control-label"></label>
-                <input asp-for="Fecha" class="form-control" readonly value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" />
-                <span asp-validation-for="Fecha" class="text-danger"></span>
+                <label asp-for="ACFFecha" class="control-label"></label>
+                <input asp-for="ACFFecha" class="form-control" readonly value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" />
+                <span asp-validation-for="ACFFecha" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TicketID" class="control-label"></label>
-                <select asp-for="TicketID" class="form-control" asp-items="ViewBag.TicketID"></select>
-                <span asp-validation-for="TicketID" class="text-danger"></span>
+                <label asp-for="ACFTicketID" class="control-label"></label>
+                <select asp-for="ACFTicketID" class="form-control" asp-items="ViewBag.ACFTicketID"></select>
+                <span asp-validation-for="ACFTicketID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

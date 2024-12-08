@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ProyectoEasyTicket.Models.Ticket>
+﻿@model IEnumerable<ProyectoEasyTicket.Models.ACFTicket>
 
 @{
     ViewData["Title"] = "Inicio | EasyTicket";
@@ -58,18 +58,18 @@
                         break;
                     }
 
-                    if (item.Vendido == false)
+                    if (item.ACFVendido == false)
                     {
                         contador++;
                         <tr>
-                            <td>@Html.DisplayFor(modelItem => item.Evento)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Fecha)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Lugar)</td>
-                            <td>@Html.DisplayFor(modelItem => item.ButacaSeccion)</td>
-                            <td>$@Html.DisplayFor(modelItem => item.Precio)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Telefono)</td>
+                            <td>@Html.DisplayFor(modelItem => item.ACFEvento)</td>
+                            <td>@Html.DisplayFor(modelItem => item.ACFFecha)</td>
+                            <td>@Html.DisplayFor(modelItem => item.ACFLugar)</td>
+                            <td>@Html.DisplayFor(modelItem => item.ACFButacaSeccion)</td>
+                            <td>$@Html.DisplayFor(modelItem => item.ACFPrecio)</td>
+                            <td>@Html.DisplayFor(modelItem => item.ACFTelefono)</td>
                             <td>
-                                @if (item.Vendido)
+                                @if (item.ACFVendido)
                                 {
                                     <span class="badge bg-success">Vendido</span>
                                 }

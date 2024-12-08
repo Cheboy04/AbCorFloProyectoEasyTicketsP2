@@ -4,6 +4,7 @@ using AbCorFloProyectoEasyTicketsP2.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AbCorFloProyectoEasyTicketsP2.Migrations
 {
     [DbContext(typeof(AbCorFloProyectoEasyTicketsP2Context))]
-    partial class AbCorFloProyectoEasyTicketsP2ContextModelSnapshot : ModelSnapshot
+    [Migration("20241207233839_pers1")]
+    partial class pers1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -85,7 +88,7 @@ namespace AbCorFloProyectoEasyTicketsP2.Migrations
 
                     b.HasKey("ACFTicketID");
 
-                    b.ToTable("ACFTicket");
+                    b.ToTable("Ticket");
                 });
 
             modelBuilder.Entity("ProyectoEasyTicket.Models.ACFReviews", b =>
